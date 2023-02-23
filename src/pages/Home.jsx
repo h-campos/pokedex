@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import { FaBars, FaSistrix } from 'react-icons/fa'
 
 const Home = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <HomeContainer>
       <Navbar>
@@ -19,18 +23,20 @@ const Home = () => {
       <Question>
         Quel ✨ <i>Pokemon</i> ✨ rechercher vous ?
       </Question>
-      <InputContainer>
+      <InputContainer onSubmit={handleSubmit}>
         <Input placeholder='Pikachu ⚡️' />
-        <FaSistrix
-          color={'#c8d6e5'}
-          size={'1.5rem'}
-          style={{
-            position: 'absolute',
-            top: '50%',
-            right: '5%',
-            transform: 'translateY(-50%)'
-          }}
-        />
+        <button type='submit'>
+          <FaSistrix
+            color={'#c8d6e5'}
+            size={'1.5rem'}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              right: '5%',
+              transform: 'translateY(-50%)'
+            }}
+          />
+        </button>
       </InputContainer>
     </HomeContainer>
   )
