@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 
 //Pages
 import Home from './pages/Home'
+import Search from './pages/Search'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <MainContainer>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/search-pokemon' element={<Search />} />
           </Routes>
         </MainContainer>
       </phone-mockup>
