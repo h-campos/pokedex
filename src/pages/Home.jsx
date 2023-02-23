@@ -1,14 +1,35 @@
 //Other
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 //Icons
 import { FaBars, FaSistrix } from 'react-icons/fa'
 
 const Home = () => {
+  const [listAllPokemon, setListAllPokemon] = useState([])
+
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+
+  const getListPokemon = async () => {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=50')
+    const data = await res.json()
+
+    const getDetails = (listPokemon) => {
+      listPokemon.map(async (pokemon) => {
+        await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+          .then((res) => res.json())
+          .then((data) => setListAllPokemon((curr) => [...curr, data]))
+      })
+    }
+
+    getDetails(data.results)
+  }
+
+  useEffect(() => {
+    getListPokemon()
+  }, [])
 
   return (
     <HomeContainer>
