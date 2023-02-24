@@ -48,7 +48,7 @@ const Home = () => {
         Quel ✨ <i>Pokemon</i> ✨ rechercher vous ?
       </Question>
       <InputContainer onSubmit={handleSubmit}>
-        <Input placeholder='Pikachu ⚡️' />
+        <Input placeholder='Pikachu' />
         <button type='submit'>
           <FaSistrix
             color={'#c8d6e5'}
@@ -74,6 +74,7 @@ const Home = () => {
           )
         })}
       </PokemonContainer>
+      <HidePoint />
     </HomeContainer>
   )
 }
@@ -83,6 +84,8 @@ const HomeContainer = styled.div`
   max-width: 90%;
   margin: 0 auto;
   overflow-y: scroll;
+  background-color: #222831;
+  position: relative;
 `
 
 const Navbar = styled.nav`
@@ -92,7 +95,7 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 3em;
-  background-color: red;
+  margin-top: 1em;
 `
 
 const AppTitle = styled.h1`
@@ -120,17 +123,18 @@ const InputContainer = styled.form`
 const Input = styled.input`
   width: 100%;
   height: 100%;
-  background-color: #576574;
+  background-color: #393e46;
   border-radius: 80px;
   border: none;
   outline: none;
-  font-family: 'Maven Pro', sans-serif;
+  font-family: 'Tilt Neon', cursive;
   color: #c8d6e590;
   font-size: 1rem;
 
   &::placeholder {
     color: #c8d6e590;
     font-size: 1rem;
+    padding-left: 2em;
   }
 `
 
@@ -141,7 +145,16 @@ const PokemonContainer = styled.div`
   grid-column-gap: 1em;
   grid-row-gap: 1em;
   width: 100%;
-  background-color: green;
+  margin-bottom: 1em;
+`
+
+const HidePoint = styled.div`
+  position: absolute;
+  background-color: #222831;
+  width: 40px;
+  height: 40px;
+  top: 40%;
+  left: 0%;
 `
 
 export default Home
