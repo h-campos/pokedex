@@ -13,7 +13,7 @@ const App = () => {
       <phone-mockup model='' color='black'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/search-pokemon' element={<Search />} />
+          <Route path='/search-pokemon/{id}' element={<Search />} />
         </Routes>
       </phone-mockup>
     </div>
