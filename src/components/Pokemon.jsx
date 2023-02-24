@@ -19,9 +19,9 @@ const Pokemon = ({ img, name, pokemonType }) => {
   return (
     <Link to={`/search-pokemon/${name}`}>
       <PokemonDiv>
-        <img style={{ height: '50%' }} src={img} />
-        <p>{capitalizeFirstLetter(name)}</p>
-        <TagType bgColor={colorType} type={pokemonType} />
+        <img style={{ height: '40%' }} src={img} />
+        <PokemonName>{capitalizeFirstLetter(name)}</PokemonName>
+        <TagType color={colorType} type={pokemonType} />
       </PokemonDiv>
     </Link>
   )
@@ -30,7 +30,7 @@ const Pokemon = ({ img, name, pokemonType }) => {
 const PokemonDiv = styled.div`
   height: 180px;
   width: 100%;
-  background-color: purple;
+  background-color: #393e46;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -38,6 +38,12 @@ const PokemonDiv = styled.div`
   flex-direction: column;
   cursor: pointer;
   text-decoration: none;
+  gap: 1em;
+`
+
+const PokemonName = styled.p`
+  color: #c8d6e5;
+  font-family: 'Tilt Neon', cursive;
 `
 
 export default Pokemon

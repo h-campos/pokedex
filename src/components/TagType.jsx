@@ -2,27 +2,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const TagType = ({ bgColor, type }) => {
+//Utils
+import { getPokemonTypeIcon } from '../utils/pokemonTypeIcon'
+
+const TagType = ({ color, type }) => {
   return (
-    <Tag bgColor={bgColor}>
-      <Type>{type}</Type>
+    <Tag borderColor={color}>
+      <Type textColor={color}>{getPokemonTypeIcon(type) + ' ' + type}</Type>
     </Tag>
   )
 }
 
 const Tag = styled.div`
-  background-color: ${(props) => props.bgColor};
-  padding: 0.3em 1em;
+  padding: 0.2em 0.8em;
   text-align: center;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid ${(props) => props.borderColor};
 `
 
 const Type = styled.p`
-  color: #c8d6e5;
+  color: ${(props) => props.textColor};
   text-transform: uppercase;
+  font-size: 0.8rem;
+  font-family: 'Tilt Neon', cursive;
 `
 
 export default TagType
