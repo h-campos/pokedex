@@ -5,6 +5,9 @@ import styled from 'styled-components'
 //Icons
 import { FaBars, FaSistrix } from 'react-icons/fa'
 
+//Components
+import Pokemon from '../components/Pokemon'
+
 const Home = () => {
   const [listAllPokemon, setListAllPokemon] = useState([])
 
@@ -59,14 +62,27 @@ const Home = () => {
           />
         </button>
       </InputContainer>
+      <PokemonContainer>
+        {listAllPokemon.map((pokemon, index) => {
+          return (
+            <Pokemon
+              key={index}
+              img={pokemon.sprites.front_default}
+              name={pokemon.name}
+              pokemonType={pokemon.types[0].type.name}
+            />
+          )
+        })}
+      </PokemonContainer>
     </HomeContainer>
   )
 }
 
 const HomeContainer = styled.div`
-  height: 100%;
+  max-height: 100%;
   max-width: 90%;
   margin: 0 auto;
+  overflow-y: scroll;
 `
 
 const Navbar = styled.nav`
@@ -76,6 +92,7 @@ const Navbar = styled.nav`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 3em;
+  background-color: red;
 `
 
 const AppTitle = styled.h1`
@@ -97,6 +114,7 @@ const InputContainer = styled.form`
   position: relative;
   margin: 0 auto;
   display: block;
+  margin-bottom: 3em;
 `
 
 const Input = styled.input`
@@ -114,6 +132,16 @@ const Input = styled.input`
     color: #c8d6e590;
     font-size: 1rem;
   }
+`
+
+const PokemonContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  width: 100%;
+  background-color: green;
 `
 
 export default Home
