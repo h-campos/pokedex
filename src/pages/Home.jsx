@@ -1,6 +1,7 @@
 //Other
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
 //Icons
 import { FaBars, FaSistrix } from 'react-icons/fa'
@@ -10,9 +11,13 @@ import Pokemon from '../components/Pokemon'
 
 const Home = () => {
   const [listAllPokemon, setListAllPokemon] = useState([])
+  const [pokemonName, setPokemonName] = useState('Pikachu')
+  const inputRef = useRef(null)
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    navigate(`/search-pokemon/${pokemonName.toLowerCase()}`)
   }
 
   const getListPokemon = async () => {
@@ -48,7 +53,13 @@ const Home = () => {
         Quel ✨ <i>Pokemon</i> ✨ rechercher vous ?
       </Question>
       <InputContainer onSubmit={handleSubmit}>
-        <Input placeholder='Pikachu' />
+        <Input
+          ref={inputRef}
+          value={pokemonName}
+          onChange={(e) => {
+            setPokemonName(e.target.value)
+          }}
+        />
         <button type='submit'>
           <FaSistrix
             color={'#c8d6e5'}
