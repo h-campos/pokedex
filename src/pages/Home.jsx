@@ -14,6 +14,7 @@ const Home = () => {
   const [pokemonName, setPokemonName] = useState('Pikachu')
   const inputRef = useRef(null)
   const navigate = useNavigate()
+  const favicon = document.querySelector('#favicon')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,6 +38,8 @@ const Home = () => {
 
   useEffect(() => {
     getListPokemon()
+    document.title = 'Pokedex'
+    favicon.href = '/pokeball.png'
   }, [])
 
   return (
