@@ -47,6 +47,7 @@ const EvolutionContainer = styled.div`
   align-items: center;
   flex-direction: column;
   margin-bottom: 1em;
+  border: 1px solid #c8d6e5;
 `
 
 const ImgContainer = styled.div`

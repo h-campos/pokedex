@@ -36,6 +36,7 @@ const PokemonDiv = styled.div`
   cursor: pointer;
   text-decoration: none;
   gap: 1em;
+  border: 1px solid #c8d6e5;
 `
 
 const PokemonName = styled.p`

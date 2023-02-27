@@ -144,6 +144,7 @@ const Input = styled.input`
   font-family: 'Tilt Neon', cursive;
   color: #c8d6e590;
   font-size: 1rem;
+  border: 1px solid #c8d6e5;
 
   &::placeholder {
     color: #c8d6e590;
