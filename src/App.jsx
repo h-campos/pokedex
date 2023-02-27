@@ -50,6 +50,8 @@ const Credits = styled.p`
   font-family: 'Tilt Neon', cursive;
   color: #c8d6e5;
   font-size: 1rem;
+  min-width: 80%;
+  text-align: center;
 `
 
 export default App
