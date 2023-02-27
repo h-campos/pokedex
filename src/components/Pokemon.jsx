@@ -5,15 +5,12 @@ import { Link } from 'react-router-dom'
 
 //Utils
 import { getPokemonTypeColor } from '../utils/pokemonTypeColor'
+import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter'
 
 //Components
 import TagType from './TagType'
 
 const Pokemon = ({ img, name, pokemonType }) => {
-  const capitalizeFirstLetter = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1)
-  }
-
   const colorType = getPokemonTypeColor(pokemonType)
 
   return (
