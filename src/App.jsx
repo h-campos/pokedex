@@ -2,6 +2,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
+import('./utils/mockup')
 
 //Pages
 import Home from './pages/Home'
