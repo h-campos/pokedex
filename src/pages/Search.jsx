@@ -129,7 +129,7 @@ const Search = () => {
           </StatContainer>
         </>
       ) : (
-        'Loading'
+        <Loading>Chargement...</Loading>
       )}
     </SearchContainer>
   )
@@ -331,6 +331,17 @@ const StatContainerBar = styled.div`
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-row-gap: 1em;
+`
+
+const Loading = styled.p`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #c8d6e5;
+  font-family: 'Tilt Neon', cursive;
+  text-transform: uppercase;
+  font-size: 1.5rem;
 `
 
 export default Search
