@@ -26,6 +26,7 @@ const Search = () => {
   const [infoPokemon, setInfoPokemon] = useState()
   const [pokemonSpecies, setPokemonSpecies] = useState()
   const [evolution, setEvolution] = useState()
+  const [error, setError] = useState(false)
   const favicon = document.querySelector('#favicon')
 
   useEffect(() => {
@@ -33,9 +34,11 @@ const Search = () => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .then((response) => response.json())
       .then((data) => setInfoPokemon(data))
+      .catch(() => setError(true))
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}/`)
       .then((response) => response.json())
       .then((data) => setPokemonSpecies(data))
+      .catch(() => setError(true))
   }, [])
 
   useEffect(() => {
@@ -52,7 +55,17 @@ const Search = () => {
 
   return (
     <SearchContainer>
-      {infoPokemon && evolution ? (
+      {error ? (
+        <>
+          <Error>
+            Il semblerait que le pokemon {name} n'existe pas.<br></br>
+            <br></br> Veuillez réessayer avec un autre. 😟
+          </Error>
+          <Link to='/'>
+            <BoutonBack>Retour à la page d'accueil</BoutonBack>
+          </Link>
+        </>
+      ) : infoPokemon && evolution ? (
         <>
           <Link to='/'>
             <FaArrowLeft
@@ -343,6 +356,34 @@ const Loading = styled.p`
   font-family: 'Tilt Neon', cursive;
   text-transform: uppercase;
   font-size: 1.5rem;
+`
+
+const Error = styled.p`
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #c8d6e5;
+  font-family: 'Tilt Neon', cursive;
+  font-size: 1.2rem;
+  min-width: 80%;
+  text-align: center;
+`
+
+const BoutonBack = styled.button`
+  background-color: #393e46;
+  padding: 1em 2em;
+  cursor: pointer;
+  border: 1px solid #c8d6e5;
+  color: #c8d6e5;
+  font-family: 'Tilt Neon', cursive;
+  border-radius: 8px;
+  font-size: 1rem;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 80%;
 `
 
 export default Search
