@@ -1,10 +1,11 @@
 # Changelog
 
-<a name="0.0.0"></a>
-## 0.0.0 (2023-02-28)
+<a name="1.0.0"></a>
+## 1.0.0 (2023-02-28)
 
 ### Added
 
+- 🔊 Add gitmoji-changelog [[80bd616](https://github.com/Sakoutecher/pokedex/commit/80bd6165583797b15fe8cffd8cf30cdcd9725a68)]
 - ✨ Show errors from api [[e996d33](https://github.com/Sakoutecher/pokedex/commit/e996d3351bc34c3c7a0533fd6d5040eb05b6c5a5)]
 - ✨ Now show informations on one pokemon [[9f71b6d](https://github.com/Sakoutecher/pokedex/commit/9f71b6d377456edefdc1fb2760292fe410ad90df)]
 - ✨ Add a new function who give the color for the progress bar [[21b5a11](https://github.com/Sakoutecher/pokedex/commit/21b5a116cd8bef977918cc759b4fa144c22f9555)]
