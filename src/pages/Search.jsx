@@ -91,7 +91,8 @@ const Search = () => {
             imgPokemon={[
               evolution.chain.species.name,
               evolution.chain.evolves_to[0].species.name,
-              evolution.chain.evolves_to[0].evolves_to[0].species.name
+              evolution.chain.evolves_to[0].evolves_to.length !== 0 &&
+                evolution.chain.evolves_to[0].evolves_to[0].species.name
             ]}
           />
           <HeightAndWeight>
