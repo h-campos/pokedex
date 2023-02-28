@@ -7,21 +7,34 @@ const PokemonEvolution = ({ imgPokemon }) => {
 
   useEffect(() => {
     if (imgPokemon) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
-        .then((res) => res.json())
-        .then((data) =>
-          setListImg((curr) => [...curr, data.sprites.front_default])
-        )
-      fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[1]}`)
-        .then((res) => res.json())
-        .then((data) =>
-          setListImg((curr) => [...curr, data.sprites.front_default])
-        )
-      fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[2]}`)
-        .then((res) => res.json())
-        .then((data) =>
-          setListImg((curr) => [...curr, data.sprites.front_default])
-        )
+      if (imgPokemon.length === 2) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[1]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[2]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+      } else if (imgPokemon.length === 1) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[1]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+      }
     }
   }, [])
 
