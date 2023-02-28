@@ -5,8 +5,6 @@ import styled from 'styled-components'
 const PokemonEvolution = ({ imgPokemon }) => {
   const [listImg, setListImg] = useState([])
 
-  console.log(imgPokemon.length)
-
   useEffect(() => {
     if (imgPokemon) {
       if (imgPokemon.length === 3) {
