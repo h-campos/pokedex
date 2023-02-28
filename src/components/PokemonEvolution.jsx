@@ -5,9 +5,11 @@ import styled from 'styled-components'
 const PokemonEvolution = ({ imgPokemon }) => {
   const [listImg, setListImg] = useState([])
 
+  console.log(imgPokemon.length)
+
   useEffect(() => {
     if (imgPokemon) {
-      if (imgPokemon.length === 2) {
+      if (imgPokemon.length === 3) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
           .then((res) => res.json())
           .then((data) =>
@@ -23,13 +25,19 @@ const PokemonEvolution = ({ imgPokemon }) => {
           .then((data) =>
             setListImg((curr) => [...curr, data.sprites.front_default])
           )
-      } else if (imgPokemon.length === 1) {
+      } else if (imgPokemon.length === 2) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
           .then((res) => res.json())
           .then((data) =>
             setListImg((curr) => [...curr, data.sprites.front_default])
           )
         fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[1]}`)
+          .then((res) => res.json())
+          .then((data) =>
+            setListImg((curr) => [...curr, data.sprites.front_default])
+          )
+      } else if (imgPokemon.length === 1) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${imgPokemon[0]}`)
           .then((res) => res.json())
           .then((data) =>
             setListImg((curr) => [...curr, data.sprites.front_default])
