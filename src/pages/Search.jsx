@@ -170,6 +170,11 @@ const SearchContainer = styled.div`
   overflow-y: scroll;
   background-color: #222831;
   position: relative;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const ColorDot = styled.div`
